@@ -1,51 +1,43 @@
 import PokemonCard from "./components/PokemonCard";
 import { useState } from "react";
+import NavBar from "./components/NavBar"
 
 const pokemonList = [
   {
-    name: "bulbasaur",
+    name: "Bulbizarre",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
   },
   {
-    name: "charmander",
+    name: "Salamèche",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
   },
   {
-    name: "squirtle",
+    name: "Carapuce",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
   },
   {
-    name: "pikachu",
+    name: "Pikachu",
     imgSrc:
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   },
   {
-    name: "mew",
+    name: "Mew",
+    imgSrc:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png",
   },
 ];
 
 const App = () => {
   const [indexPokemon, setIndexPokemon] = useState(0);
   const pokemonArray = pokemonList[indexPokemon]
-  const nextClick = () => {
-    if (indexPokemon < pokemonList.length -1) {
-      setIndexPokemon(indexPokemon +1)
-    }
-  }
-  const previousClick = () => {
-    if (indexPokemon > 0) {
-      setIndexPokemon(indexPokemon -1)
-    }
-  }
 
   return (
     <div>
       <PokemonCard pokemon={pokemonArray}/>
-      <button onClick={previousClick}>Précédent</button>
-      <button onClick={nextClick}>Suivant</button>
+      <NavBar indexPokemon={indexPokemon} setIndexPokemon={setIndexPokemon} pokemonList={pokemonList}/>
       </div>
   )
 }
